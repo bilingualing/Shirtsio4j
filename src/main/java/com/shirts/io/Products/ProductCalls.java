@@ -36,10 +36,16 @@ public class ProductCalls
     private CloseableHttpResponse response;
     private CloseableHttpClient httpClient = HttpClients.createDefault();
 
-    public LinkedList<Category> getProductCategories()
+    /**
+     * Get a list of all available product categories.
+     * No arguments other than your API Key are needed for this request.
+     * @param apiKey
+     * @return
+     */
+    public LinkedList<Category> getProductCategories(String apiKey)
     {
         LinkedList<Category> returnedCategories = new LinkedList<Category>();
-        HttpGet httpGet = new HttpGet("https://www.shirts.io/api/v1/products/category/");
+        HttpGet httpGet = new HttpGet("https://www.shirts.io/api/v1/products/category/?api_key="+apiKey);
 
         try
         {
@@ -66,18 +72,49 @@ public class ProductCalls
         return returnedCategories;
     }
 
-    public void getProductList(int CategoryId, String apiKey)
+    /**
+     * Specify a category ID to receive a list of products in that category.
+     * @param CategoryId
+     * @param apiKey
+     */
+    public LinkedList<Product> getProductList(int CategoryId, String apiKey)
 
     {
-        HttpGet httpGet = new HttpGet("https://www.shirts.io/api/v1/products/category/?api_key="+apiKey);
+        LinkedList<Product> returnedProducts = new LinkedList<Product>();
+        HttpGet httpGet = new HttpGet("https://www.shirts.io/api/v1/products/category/"+CategoryId+"/?api_key="+apiKey);
 
         try
         {
             response = httpClient.execute(httpGet);
+            if(response.getStatusLine().getStatusCode() == 200)
+            {
+                entity = response.getEntity();
+                jsonResponse = EntityUtils.toString(entity);
+                JsonNode root = mapper.readTree(jsonResponse);
+                ArrayNode products = (ArrayNode) root.path("result");
+                Iterator<JsonNode> iterator = products.getElements();
+                while(iterator.hasNext())
+                {
+                    Product product = mapper.readValue(iterator.next(), Product.class);
+                    returnedProducts.add(product);
+                }
+            }
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
+
+        return returnedProducts;
+    }
+
+    /**
+     * Specify a product ID to receive the following information about the product.
+     * @param productId
+     * @return
+     */
+    public Product getProduct(int productId)
+    {
+        HttpGet httpGet = new HttpGet("");
     }
 }
