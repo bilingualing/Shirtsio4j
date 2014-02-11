@@ -7,10 +7,10 @@ public class Color
     private String smallest;
     private String largest;
     private String hex;
-    private String frontImage;
-    private String backImage;
-    private String leftImage;
-    private String rightImage;
+    private String front_image;
+    private String back_image;
+    private String left_image;
+    private String right_image;
 
     public Color()
     {
@@ -50,34 +50,34 @@ public class Color
     }
 
     public String getFrontImage() {
-        return frontImage;
+        return front_image;
     }
 
     public void setFrontImage(String frontImage) {
-        this.frontImage = frontImage;
+        this.front_image = frontImage;
     }
 
     public String getBackImage() {
-        return backImage;
+        return back_image;
     }
 
     public void setBackImage(String backImage) {
-        this.backImage = backImage;
+        this.back_image = backImage;
     }
 
     public String getLeftImage() {
-        return leftImage;
+        return left_image;
     }
 
     public void setLeftImage(String leftImage) {
-        this.leftImage = leftImage;
+        this.left_image = leftImage;
     }
 
     public String getRightImage() {
-        return rightImage;
+        return right_image;
     }
 
     public void setRightImage(String rightImage) {
-        this.rightImage = rightImage;
+        this.right_image = rightImage;
     }
 }

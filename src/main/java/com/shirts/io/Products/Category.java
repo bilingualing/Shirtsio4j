@@ -4,7 +4,7 @@ package com.shirts.io.Products;
 public class Category
 {
 
-    public int categoryId;
+    public int category_id;
     public String name;
 
     public Category()
@@ -13,11 +13,11 @@ public class Category
     }
 
     public int getCategoryId() {
-        return categoryId;
+        return category_id;
     }
 
     public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+        this.category_id = categoryId;
     }
 
     public String getName() {
