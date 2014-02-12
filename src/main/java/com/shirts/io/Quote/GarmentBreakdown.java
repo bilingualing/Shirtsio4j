@@ -3,8 +3,8 @@ package com.shirts.io.Quote;
 public class GarmentBreakdown {
 
     private double subtotal;
-    private double pricePerShirt;
-    private int numOfShirts;
+    private double price_per_shirt;
+    private int num_shirts;
 
     public GarmentBreakdown()
     {
@@ -20,18 +20,18 @@ public class GarmentBreakdown {
     }
 
     public double getPricePerShirt() {
-        return pricePerShirt;
+        return price_per_shirt;
     }
 
     public void setPricePerShirt(double pricePerShirt) {
-        this.pricePerShirt = pricePerShirt;
+        this.price_per_shirt = pricePerShirt;
     }
 
     public int getNumOfShirts() {
-        return numOfShirts;
+        return num_shirts;
     }
 
     public void setNumOfShirts(int numOfShirts) {
-        this.numOfShirts = numOfShirts;
+        this.num_shirts = numOfShirts;
     }
 }
