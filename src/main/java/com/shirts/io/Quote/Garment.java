@@ -1,6 +1,7 @@
 package com.shirts.io.Quote;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Garment
@@ -9,7 +10,7 @@ public class Garment
     private int productId;
     private String color;
     private List<Size> sizes;
-    private List<Print> prints;
+    private HashMap<String,Print> prints;
 
     public Garment()
     {
@@ -40,11 +41,11 @@ public class Garment
         this.sizes = sizes;
     }
 
-    public List<Print> getPrints() {
+    public HashMap<String,Print> getPrints() {
         return prints;
     }
 
-    public void setPrints(List<Print> prints) {
+    public void setPrints(HashMap<String,Print> prints) {
         this.prints = prints;
     }
 }
