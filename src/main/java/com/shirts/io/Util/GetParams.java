@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Params
+public class GetParams
 {
 
-    public Params()
+    public GetParams()
     {
         super();
     }
@@ -130,6 +130,36 @@ public class Params
     {
         String international = "&international_garments["+location+"]="+count;
         return international;
+    }
+
+    public String addressesName(int number,String name)
+    {
+        String address = "addresses["+number+"][name]="+name;
+        return address;
+    }
+
+    public String addressesAddress(int number, String address)
+    {
+        String addresses = "addresses["+number+"][address]="+address;
+        return addresses;
+    }
+
+    public String addressesCity(int number, String city)
+    {
+        String addresses = "addresses["+number+"][city]="+city;
+        return addresses;
+    }
+
+    public String addressesState(int number, String state)
+    {
+        String address = "addresses["+number+"][state]="+state;
+        return address;
+    }
+
+    public String addressesZipCode(int number, String zipCode)
+    {
+        String address = "addresses["+number+"][zipcode]="+zipCode;
+        return address;
     }
 
 }
