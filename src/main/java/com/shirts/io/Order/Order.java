@@ -6,29 +6,18 @@ import java.util.List;
 
 public class Order
 {
-    private String apiKey;
     private boolean test;
-    private double price;
     private List<Garment> garments;
     private String printType;
     private List<Personalization> personalizations;
     private List<Address> addresses;
     private String extraScreens;
     private String shipType;
-    private int orderId;
-    private String warnings;
+
 
     public Order()
     {
         super();
-    }
-
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
     }
 
     public boolean isTest() {
@@ -37,14 +26,6 @@ public class Order
 
     public void setTest(boolean test) {
         this.test = test;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public List<Garment> getGarments() {
@@ -93,21 +74,5 @@ public class Order
 
     public void setShipType(String shipType) {
         this.shipType = shipType;
-    }
-
-    public String getWarnings() {
-        return warnings;
-    }
-
-    public void setWarnings(String warnings) {
-        this.warnings = warnings;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
     }
 }
