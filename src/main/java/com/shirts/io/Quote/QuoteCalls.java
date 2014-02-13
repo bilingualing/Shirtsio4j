@@ -1,10 +1,7 @@
 package com.shirts.io.Quote;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.shirts.io.Products.Category;
-import com.shirts.io.Products.Product;
-import com.shirts.io.Util.Params;
+import com.shirts.io.Util.GetParams;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -13,11 +10,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ArrayNode;
-
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,7 +23,7 @@ public class QuoteCalls
     private CloseableHttpResponse response;
     private CloseableHttpClient httpClient = HttpClients.createDefault();
     private String apiKey;
-    private Params params;
+    private GetParams getParams;
 
     public QuoteCalls(String apiKey)
     {
@@ -40,12 +33,11 @@ public class QuoteCalls
 
     public QuoteResponse getQuote(List<Garment> garments,HashMap<String,Print> prints)
     {
-        params = new Params();
+        getParams = new GetParams();
         String url = "https://www.shirts.io/api/v1/quote/?api_key="+this.apiKey;
-        String garmentString = params.buildGarmentsString(garments);
-        String printString = params.buildPrintString(prints);
+        String garmentString = getParams.buildGarmentsString(garments);
+        String printString = getParams.buildPrintString(prints);
         url = url + garmentString + printString;
-        char ch113 = url.charAt(131);
         QuoteResponse qResponse = null;
         HttpGet httpGet = new HttpGet(url);
 
